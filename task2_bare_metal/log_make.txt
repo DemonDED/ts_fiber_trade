@@ -1,0 +1,26 @@
+
+Исходный код в объектный файл:
+
+gcc -c hello.c
+
+
+Кросс-компиляция:
+
+arm-none-eabi-gcc -c test.c -mthumb -mcpu=cortex-m3
+
+Options:
+
+-marm or -mthumb (Набор инструкций для ARM или Thumb)
+-march=name (Выбор архитектуры ISA)
+-mtune=name (Выбор ЦП для оптимизации)
+-mcpu=name (Выбор архитектуры ЦП для оптимизации, вместо march и mtune)
+
+
+Компоновка исполняемого файла:
+
+arm-none-eabi-ld -o image.elf object1.o object2.o -T linker.ld -map=map_file.map
+
+
+Преобразование двоичного формата:
+
+arm-none-eabi-objcopy -I elf -O binary image.elf image.bin
