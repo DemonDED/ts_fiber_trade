@@ -1,0 +1,32 @@
+arm-none-eabi-gcc
+
+list:
+
+1) -mcpu=cortex-m3
+2) -mthumb
+3) -T linker.ld
+4) main.c
+5) startup.s
+6) -o firmware.elf
+7) -Wl,-Map=firmware.map
+
+
+Chek firmware:
+
+1) Если надо посмотреть размер
+
+arm-none-eabi-size firmware.elf
+
+2) Если надо детально изучить секции
+
+arm-none-eabi-objdump -hS firmware.elf
+
+Для общего поиска
+
+или
+
+arm-none-eabi-nm firmware.elf | grep -E "who search?"
+
+Для предметного поиска
+
+
